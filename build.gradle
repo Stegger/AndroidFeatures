@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+ 
+    dependencies {
+        classpath 'org.javafxports:jfxmobile-plugin:1.0.8'
+    }
+}
+ 
+apply plugin: 'org.javafxports.jfxmobile'
+ 
+mainClassName = 'Main'
+ 
+repositories {
+    jcenter()
+    maven {
+        url 'http://nexus.gluonhq.com/nexus/content/repositories/releases'
+    }
+    mavenCentral()
+}
+ 
+dependencies {
+    compile 'org.lodgon.openmapfx:openmapfx:1.0.1'
+    compile 'com.gluonhq:charm:3.0.0'
+    androidRuntime 'com.gluonhq:charm-android:3.0.0'
+    iosRuntime 'com.gluonhq:charm-ios:3.0.0'
+    desktopRuntime 'com.gluonhq:charm-desktop:3.0.0'
+}
+
+jfxmobile {
+    javafxportsVersion = '8.60.7'
+    android {
+        androidSdk = 'C:/Program Files (x86)/Android/android-sdk'
+        applicationPackage = 'com.stegger.AndroidFeatures' 
+        manifest = 'src/android/AndroidManifest.xml'
+    }
+}
